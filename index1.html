@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Testing API</h1>
+    <div id="contents">
+        
+    </div>
+
+
+
+<script src="path/to/vanilla.js"></script>
+<script>
+    $(function(){
+        $.get('https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72', function(data){
+            data.forEach(function(post){
+                $('#contents').append('<img src="'+post.photo+'" alt="">')
+                $('#contents').append('<h2>'+post.property_type+'</h2>')
+                $('#contents').append('<p>'+post.name+'</p>')
+                $('#contents').append('<p>'+post.price+'</p>')
+            });
+        })
+    })
+</script>
+</body>
+</html>

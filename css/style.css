@@ -1,0 +1,131 @@
+/*Estilizando header*/
+header{
+  overflow: auto;
+  width: 100%;
+}
+
+header nav ul{
+  list-style-type: none;
+  cursor: default;
+}
+
+header a img{
+  margin: 15px 15px 15px 15px;
+  padding: 10px 10px 10px 10px;
+
+}
+
+/*Estilizando form*/
+form {
+  /* Apenas para centralizar o form na página */
+  width: 80%;
+  /* Para ver as bordas do formulário */
+  padding: 1em;
+  
+}
+
+.busca{
+  border: #CCC 1px solid;
+  box-shadow: 0 5px 5px #CCC;
+  margin: 10px;
+  border-radius: 10px 10px;
+  display: flex; 
+}
+
+.busca-conteudo{
+  border-radius: 10px 10px 0 0 ;  
+  border: #CCC 1px solid;
+  margin: 5px;
+  position: relative;
+  padding: 2px;
+  width: 100%;
+}
+
+.busca-conteudo label{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 10px;
+  display: inline-block;
+}
+
+.busca-conteudo input{
+  border: none !important;
+  outline: none !important;
+    
+}
+
+.busca-conteudo input:focus {
+  /* Dar um pouco de destaque nos elementos ativos */
+  border-color: #000;
+}
+
+.busca-date{
+  display: inline;
+  justify-content: center;
+}
+
+.pesquisar {
+  background-color: #FF5A5F;
+  border-radius: 10px 10px;
+  color: #FFFFFF;
+  text-decoration: none !important;
+  font-weight: bold;
+  margin: 5px 2px 5px 2px;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aliceblue;
+}
+
+.card {
+  /*border: 1px solid gray;
+  border-radius: 15px 15px;*/
+  
+  margin: 1rem;
+  width: 40%;
+}
+
+.card img{
+    border-radius: 15px 15px;
+    width: 100%;
+}
+
+
+
+
+
+@media screen and (min-width: 600px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    flex: 1 1 calc(33% - 2rem);
+  }
+}
+
+_1xbe1p9:checked{
+  border-color:#222222 !important;
+}
+._1xbe1p9:checked + [data-text]{
+  cursor:default !important;
+}
+._1xbe1p9:checked + [data-text]:hover{
+  color:#222222 !important;
+}
+._1xbe1p9:focus-visible + [data-text]{
+  -webkit-transition:box-shadow 0.2s ease !important;
+  -moz-transition:box-shadow 0.2s ease !important;
+  transition:box-shadow 0.2s ease !important;
+  box-shadow:0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #222222 !important;
+}

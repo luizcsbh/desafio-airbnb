@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Airbnb</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/Airbnb-Logo-8.png" alt="Logo Airbnb"></a>
+   
+        <form action="GET">
+            <div class="busca">
+
+                <div class="busca-conteudo">
+                    <label for="local">LOCALIZAÇÃO</label><br>
+                    <input id="localizacao" type="text" placeholder="Insira a cidade, ponto de referência ou endereço" required>
+                </div>
+
+                <div class="busca-conteudo">
+                    <label for="calendario">CHECK-IN/CHECKOUT</label><br>
+                    <div class="busca-date">
+                        <input id="calendar-in" type="date" placeholder="Insira as datas">
+                    </div>
+                    <div class="busca-date">
+                        <input id="calendar-out" type="date" placeholder="Insira as datas">
+                    </div>
+                </div>
+
+                <div class="busca-conteudo">
+                    <label for="numhospedes">HÓSPEDES</label><br>
+                    <input id="num-hospedes" type="number" placeholder="Insira o número de hópedes" min="0">
+                </div>
+
+                <button class="pesquisar" type="submit">Buscar</button>
+            
+            </div><!-- Fim div busca-->
+        </form>
+    </header>
+    <div class="container">
+    <!--   <div id="root"></div> --> 
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
