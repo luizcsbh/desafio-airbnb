@@ -11,30 +11,30 @@
     <header>
         <a href="index.html"><img src="img/Airbnb-Logo-8.png" alt="Logo Airbnb"></a>
    
-        <form action="GET">
+        <form>
             <div class="busca">
 
                 <div class="busca-conteudo">
                     <label for="local">LOCALIZAÇÃO</label><br>
-                    <input id="localizacao" type="text" placeholder="Insira a cidade, ponto de referência ou endereço" required>
+                    <input id="localizacao" type="text" placeholder="Para onde você vai?">
                 </div>
 
                 <div class="busca-conteudo">
                     <label for="calendario">CHECK-IN/CHECKOUT</label><br>
                     <div class="busca-date">
-                        <input id="calendar-in" type="date" placeholder="Insira as datas">
+                        <input id="calendar-in" type="date" onclick="validaCalendar()" required>
                     </div>
                     <div class="busca-date">
-                        <input id="calendar-out" type="date" placeholder="Insira as datas">
+                        <input id="calendar-out" type="date" onclick="validaCalendar()" required>
                     </div>
                 </div>
 
                 <div class="busca-conteudo">
                     <label for="numhospedes">HÓSPEDES</label><br>
-                    <input id="num-hospedes" type="number" placeholder="Insira o número de hópedes" min="0">
+                    <input id="numeroHospedes" type="number" onclick="calculaPeriodo()" placeholder="Insira o número de hópedes" min="0">
                 </div>
 
-                <button class="pesquisar" type="submit">Buscar</button>
+                <button class="pesquisar" type="submit" >Buscar</button>
             
             </div><!-- Fim div busca-->
         </form>
