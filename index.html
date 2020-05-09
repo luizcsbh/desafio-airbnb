@@ -1,47 +1,124 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Airbnb</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Airbhb </title>
+  <meta name="description" content="Portal clone Airbhb desenvolvido por
+ Luiz Santos Desenvolvedor Web, para desafio da Gama Academy"> 
+  <meta name="keywords" content="Airbhb, hospedagem, javascript, html5, css, Gama Academy, desafio, site"/>
+  <meta name="robots" content="index, follow">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="img/Airbnb-Logo-8.png" alt="Logo Airbnb"></a>
-   
-        <form>
-            <div class="busca">
-
-                <div class="busca-conteudo">
-                    <label for="local">LOCALIZAÇÃO</label><br>
-                    <input id="localizacao" type="text" placeholder="Para onde você vai?">
-                </div>
-
-                <div class="busca-conteudo">
-                    <label for="calendario">CHECK-IN/CHECKOUT</label><br>
-                    <div class="busca-date">
-                        <input id="calendar-in" type="date" onclick="validaCalendar()" required>
-                    </div>
-                    <div class="busca-date">
-                        <input id="calendar-out" type="date" onclick="validaCalendar()" required>
-                    </div>
-                </div>
-
-                <div class="busca-conteudo">
-                    <label for="numhospedes">HÓSPEDES</label><br>
-                    <input id="numeroHospedes" type="number" onclick="calculaPeriodo()" placeholder="Insira o número de hópedes" min="0">
-                </div>
-
-                <button class="pesquisar" type="submit" >Buscar</button>
-            
-            </div><!-- Fim div busca-->
-        </form>
+  <div class="content__page">
+    <header class="headertop">
+      <div class="container">
+        <a href="/">
+          <img class="headertop__logo" src="./img/logo.jpg" alt="AirBNB"></a>
+        <a class="headertop__link" href="#">Entrar</a>
+      </div>
     </header>
-    <div class="container">
-      <div id="root"></div> 
-    </div>
-    <script src="js/script.js"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Aplicar filtros</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="container__filters">
+                <a href="javascript:filterPrice('smaller')" class="filter__button smaller">Menor Preço</a><br>
+                <a href="javascript:filterPrice('bigger')" class="filter__button bigger">Maior Preço</a><br>
+                <a href="javascript:filterType(0)" class="filter__button filter-0">Apartamento</a><br>
+                <a href="javascript:filterType(1)" class="filter__button filter-1">Casa</a><br>
+                <a href="javascript:filterType(2)" class="filter__button filter-2">Chácara</a><br>
+                <a href="javascript:filterType(3)" class="filter__button filter-3">Estúdio</a><br>
+                <a href="javascript:filterType(4)" class="filter__button filter-4">Loft</a><br>
+                <a href="javascript:filterType(5)" class="filter__button filter-5">Quarto</a><br>
+                <a href="javascript:filterType(6)" class="filter__button filter-6">Sítio</a><br>
+                <a href="/" class="filter__button clear hide">Limpar</a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div><!--Fim Modal-->
+
+    <section class="filters">
+      <div class="container" id="container__filters">
+        <div class="search">
+          <form>
+                <div class="local">
+                  <div class="local-label">
+                    <label for="local">LOCALIZAÇÃO</label>
+                  </div>
+                  <div class="local-input">
+                    <input class="form-control mr-sm-2" id="localizacao" type="text" placeholder="Para onde você vai?">
+                  </div>
+                </div>
+                <div class="check-date">
+                  <div class="local-label">
+                    <label for="calendario">CHECK-IN/CHECKOUT</label>
+                  </div>
+                  <div class="date">
+                    <div class="box-date">
+                      <input class="form-control mr-sm-2" id="calendar-in" type="date" onclick="validaCalendar()" required>
+                    </div>
+                    <div class="box-date">
+                      <input class="form-control mr-sm" id="calendar-out" type="date" onclick="validaCalendar()" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="local">
+                  <div class="local-label">
+                    <label for="numhospedes">HÓSPEDES</label>
+                  </div>
+                  <div class="local-input">
+                    <input class="form-control mr-sm-2" id="numeroHospedes" type="number"  placeholder="Insira o número de hópedes" min="0">
+                  </div> 
+                </div>
+                <div class="local">
+                  <button class="pesquisar btn btn-secondary" type="button" onclick="calculaPeriodo()">Buscar</button>
+                </div>
+                
+        </form>
+        </div>
+        <br>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+          Filtros
+        </button>
+      </div>
+    </section>
+    <section class="rooms">
+      <div class="container" id="container__rooms"></div>
+      <div class="container" id="container__pagination">
+        <div class="pagination">
+          <a class="active" href="javascript:changePage(1)">1</a>
+          <a class="" href="javascript:changePage(2)">2</a>
+          <a class="" href="javascript:changePage(3)">3</a>
+        </div>
+      </div>
+    </section>
+  <footer>    
+  </footer>
+  <script src="./js/script.js"></script>
+
 </body>
 </html>

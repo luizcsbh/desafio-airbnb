@@ -1,131 +1,270 @@
-/*Estilizando header*/
-header{
-  overflow: auto;
-  width: 100%;
-}
-
-header nav ul{
-  list-style-type: none;
-  cursor: default;
-}
-
-header a img{
-  margin: 15px 15px 15px 15px;
-  padding: 10px 10px 10px 10px;
-
-}
-
-/*Estilizando form*/
-form {
-  /* Apenas para centralizar o form na página */
-  width: 80%;
-  /* Para ver as bordas do formulário */
-  padding: 1em;
-  
-}
-
-.busca{
-  border: #CCC 1px solid;
-  box-shadow: 0 5px 5px #CCC;
-  margin: 10px;
-  border-radius: 10px 10px;
-  display: flex; 
-}
-
-.busca-conteudo{
-  border-radius: 10px 10px 0 0 ;  
-  border: #CCC 1px solid;
-  margin: 5px;
-  position: relative;
-  padding: 2px;
-  width: 100%;
-}
-
-.busca-conteudo label{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  margin: 10px;
-  display: inline-block;
-}
-
-.busca-conteudo input{
-  border: none !important;
-  outline: none !important;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    min-height: 100vh;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    color: #1a1a1a;
     
-}
-
-.busca-conteudo input:focus {
-  /* Dar um pouco de destaque nos elementos ativos */
-  border-color: #000;
-}
-
-.busca-date{
-  display: inline;
-  justify-content: center;
-}
-
-.pesquisar {
-  background-color: #FF5A5F;
-  border-radius: 10px 10px;
-  color: #FFFFFF;
-  text-decoration: none !important;
-  font-weight: bold;
-  margin: 5px 2px 5px 2px;
-}
-
-#root {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: aliceblue;
-}
-
-.card {
-  /*border: 1px solid gray;
-  border-radius: 15px 15px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  a {
+    color: #1a1a1a;
+  }
   
-  margin: 1rem;
-  width: 40%;
-}
+  input, button, textarea {
+    font: 400 18px Montserrat, sans-serif;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  /* GERAL */
+  
+  .container {
+    padding: 0 20px;
+  }
+  .loading {
+    text-align: center;
+    color: #bbb;
+  }
+  
+  /* HEADER */
+  .headertop {
+    height: 70px;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.20);
+  }
+  .headertop .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+  .headertop__logo {
+    max-height: 60px;
+  }
+  .headertop__link {
+    text-decoration: none;
+    transition: all color 0.2s;
+  }
+  .headertop__link:hover {
+    color: #FF385C;
+  }
+  
+  /* FILTERS */
+  .filters .container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    /*align-items: center;*/
+    flex-wrap: wrap;
+  }
+  .filters .container a {
+    border: 1px solid #bbb;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin-right: 5px;
+    transition: background-color 0.2s;
+    margin-bottom: 5px;
+  }
+  .filters .container a.active {
+    background-color: #FF385C;
+    color: #fff;
+    border-color: #FF385C;
+  }
+  .filters .clear {
+    margin-left: auto;
+    align-self: flex-end;
+  }
+  .filter__button.hide {
+    display: none;
+  }
 
-.card img{
-    border-radius: 15px 15px;
+  /* SEARCH*/
+
+  .search{
     width: 100%;
-}
-
-
-
-
-
-@media screen and (min-width: 600px) {
-  .card {
-    flex: 1 1 calc(50% - 2rem);
+    border: #cccccc 2px solid;
+    border-radius: 15px 15px;
+    justify-content: center;
+    padding: 1rem 1rem 1rem 1rem;
+    
   }
-}
 
-@media screen and (min-width: 900px) {
-  .card {
-    flex: 1 1 calc(33% - 2rem);
+  .search label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    
+    display: inline-block;
   }
-}
 
-_1xbe1p9:checked{
-  border-color:#222222 !important;
-}
-._1xbe1p9:checked + [data-text]{
-  cursor:default !important;
-}
-._1xbe1p9:checked + [data-text]:hover{
-  color:#222222 !important;
-}
-._1xbe1p9:focus-visible + [data-text]{
-  -webkit-transition:box-shadow 0.2s ease !important;
-  -moz-transition:box-shadow 0.2s ease !important;
-  transition:box-shadow 0.2s ease !important;
-  box-shadow:0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #222222 !important;
-}
+  .local{
+    margin:auto;
+  }
+
+  .local-label{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .date,
+  .local,
+  .local-input,
+  .check-date,
+  .box-date
+  {
+    display: inline-block;
+  }
+
+  
+  /* ROOMS */
+  .rooms {
+    margin-top: 40px;
+  }
+  .rooms .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .room {
+    min-height: 300px;
+    width: calc(100% - 10px);
+    margin: 0 10px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .room img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  .room .room__type {
+    color: rgb(104, 104, 104);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.46);
+    padding: 3px 7px;
+    margin-top: 10px;
+    display: inline-block;
+    margin-right: auto;
+    border-radius: 15px;
+  }
+  .room .room__title {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .room .room__price {
+    margin-top: 5px;
+  }
+  
+  @media only screen and (min-width: 468px) {
+    .rooms .container {
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .room {
+      width: calc(50% - 20px);
+    }
+    .room figure {
+      max-height: 170px;
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .room {
+      width: calc(33.33% - 20px);
+    }
+    .room figure {
+      max-height: 170px;
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (min-width: 960px) {
+    .container {
+      width: 940px;
+      margin: 0 auto;
+    }
+    .room {
+      width: calc(25% - 20px);
+    }
+    .room figure {
+      max-height: 140px;
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (min-width: 1300px) {
+    .container {
+      width: 1280px;
+      margin: 0 auto;
+    }
+    .room {
+      width: calc(25% - 20px);
+    }
+    .room figure {
+      max-height: 200px;
+      overflow: hidden;
+    }
+  }
+  
+  /* PAGINATION */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex: 1;
+  }
+  .pagination a {
+    width: 40px;
+    height: 40px;
+    background-color: #bbb;
+    text-decoration: none;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pagination a.active {
+    background-color: #FF385C;
+    color: #fff;
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: #eee;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  footer a {
+    text-decoration: none;
+  }
+  footer a:hover img {
+    color: #FF385C;
+  }
+  footer .social img {
+    height: 20px;
+  }
